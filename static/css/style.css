@@ -1,0 +1,23 @@
+/************************** HEADER **************************/
+/************************** BODY **************************/
+/***************** welcome *****************/
+.full-picture {
+	background: rgba(0, 0, 0, 0) url("../img/dancing-stretch-1600.jpg") no-repeat scroll center center / cover ;
+	float:left;
+	height:100%;
+	width:100%;
+	margin-left:0px;
+}
+.logo-welcome {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.search-form-welcome {
+	background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 15px 20px 20px;
+    width: 100%;
+}
+/************************** FOOTER **************************/
