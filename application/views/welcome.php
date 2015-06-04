@@ -2,7 +2,7 @@
 <body>
 	<form class="full-picture">
 		<div class="row logo-welcome">
-			<img width="240" src="<?php echo base_url(); ?>static/img/logo.png"/>
+			<img width="140" src="<?php echo base_url(); ?>static/img/logo.png"/>
 		</div>
 		<div class="row">
 			<div class="large-6 large-centered columns">
