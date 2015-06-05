@@ -5,12 +5,13 @@
 		<div class="large-6 large-centered columns container">
 			<h3>Register new account</h3>
 			<p>Register your account at Date4Life and enjoy!</p>
-			<?php echo form_open('user/login/create_member'); ?>
+			<?php $attributes = array('id' => 'register-form');?>
+			<?php echo form_open('user/create_member', $attributes); ?>
 				<fieldset>
 					<legend>Date4Life Register</legend>
 					<div class="large-12">
-	                    <label>Username <small>required</small></label>
-	                    <input name="username" required="required" type="text" placeholder="mysuperusername" />
+	                    <label>Nickname <small>required</small></label>
+	                    <input name="username" required="required" type="text" placeholder="mysupernickname" />
 	                    <?php echo form_error('username', '<small class="error">', '</small>'); ?>
 	                </div>
 	                <div class="large-12">
@@ -19,19 +20,9 @@
 	                    <?php echo form_error('email', '<small class="error">', '</small>'); ?> 
 	                </div>
 	                <div class="large-12">
-	                    <label>Re-enter Email <small>required</small></label>
-	                    <input name="email_confirm" required="required" type="email" placeholder="mysupermail@mail.com"/>
-	                    <?php echo form_error('email_confirm', '<small class="error">', '</small>'); ?> 
-	                </div>
-	                <div class="large-12">
 	                    <label>Password <small>required</small></label>
 	                    <input name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
 	                    <?php echo form_error('password', '<small class="error">', '</small>'); ?>
-	                </div>
-	                <div class="large-12">
-	                    <label>Re-enter Password <small>required</small></label>
-	                    <input name="password_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
-	                    <?php echo form_error('password_confirm', '<small class="error">', '</small>'); ?>
 	                </div>
 	                <div class="large-12">
 	                    <label>Date of Birth <small>required</small></label>
@@ -39,24 +30,28 @@
 	                    <?php echo form_error('dob', '<small class="error">', '</small>'); ?>
 	                </div>
 	                <div class="large-12">
-	                    <label>Looking for <small>required</small></label>
-	                    <select>
-							<option value="husker">Brussels</option>
-							<option value="starbuck">Leuven</option>
+	                    <label>Purpose <small>required</small></label>
+	                    <select name="purpose">
+							<option value="love">Love</option>
+							<option value="friendship">Friendship</option>
+							<option value="penpal">Pen pal</option>
+							<option value="activities">Activities</option>
 						</select>
-	                    <?php echo form_error('dob', '<small class="error">', '</small>'); ?>
+	                </div>
+	                <div class="large-12">
+	                    <label>Description <small>required</small></label>
+	                    <textarea name="description" required="required"></textarea>
+	                    <?php echo form_error('description', '<small class="error">', '</small>'); ?>
 	                </div>
 	                <div class="large-12">
 	                    <label>Profile picture <small>required</small></label>
-	                    <input type='file' class="profile_picture"/>
-	                    <img id="profile-picture-img" src="#" alt="Empty Profile Picture" />
-	                    <?php echo form_error('dob', '<small class="error">', '</small>'); ?>
+	                    <div class="dropzone" id="dropzone_profile_picture"></div>
 	                </div>
 	                <div class="large-12">
 	                    Already a member ?
 	                    <a href="<?php echo base_url()?>index.php/user/login/show_login" class="to_register"> Go and log in </a>
 	                </div>
-	                <input name="latlong" type="hidden" id="latlong">
+	                <input name="profile_picture_name" type="hidden" id="profile_picture_name"/>
 				</fieldset>
 				 <div class="large-12">
 					<input class="button small" type="submit" value="Register"/>

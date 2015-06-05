@@ -81,9 +81,7 @@ body {
 	width: 100%;
 }
 /***************** register *****************/
-#profile-picture-img {
-	max-width: 160px;
-}
+
 /***************** personal profile *****************/
 .personal-button {
 	float: right;

@@ -9,9 +9,9 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li><a href="#">Login</a></li>
+      <li><a href="<?php echo base_url('index.php/user/show_login')?>">Login</a></li>
       <li class="divider"></li>
-      <li><a href="#">Register</a></li>
+      <li><a href="<?php echo base_url('index.php/user/show_register')?>">Register</a></li>
       <li class="divider"></li>
       <li><a href="#">Search</a></li>
     </ul>

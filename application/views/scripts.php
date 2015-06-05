@@ -15,23 +15,27 @@
 		},
 		SELF.setupDatePicker = function () {
 			$('.dob').pickadate({
-				formatSubmit: 'dd/mm/yyyy'
+				formatSubmit: 'yyyy-mm-dd',
+				format: 'yyyy-mm-dd'
 			});
 		},
 		SELF.setUpProfilePictureUpload = function(){
-			$(".profile_picture").change(function () {
-		        if (this.files && this.files[0]) {
-		            var reader = new FileReader();
-		            reader.onload = imageIsLoaded;
-		            reader.readAsDataURL(this.files[0]);
-		        }
-		    });
+			 var myDropzone = new Dropzone("div#dropzone_profile_picture", { 
+				url: "<?php echo base_url("index.php/user/upload_file");?>",
+				paramName: "profile_picture",
+				addRemoveLinks: true,
+				clickable: true,
+				dictDefaultMessage: "Drop file here to upload <br> Max: 1 file",
+				acceptedFiles: "image/*",
+				maxFiles: "1"
+			});
+			myDropzone.on("success", function(file, server_response) {
+				$('input[name=profile_picture_name]').val(server_response.msg);
+			});
 		}
 	}
-	function imageIsLoaded(e) {
-	    $('#profile-picture-img').attr('src', e.target.result);
-	};
 	var ngoctran = new NGOCTRAN();
+	Dropzone.autoDiscover = false;
 	$(document).ready(function(){
 		ngoctran.setupFoundation();
 		ngoctran.validateAgeRange();

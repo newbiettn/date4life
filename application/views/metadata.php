@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/default.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/default.date.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/dropzone.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/style.css" />
 	<script src="<?php echo base_url(); ?>static/js/vendor/modernizr.js"></script>
 	<script src="<?php echo base_url(); ?>static/js/vendor/jquery.js"></script>
@@ -17,4 +18,5 @@
 	<script src="<?php echo base_url(); ?>static/js/vendor/legacy.js"></script>
 	<script src="<?php echo base_url(); ?>static/js/vendor/picker.js"></script>
 	<script src="<?php echo base_url(); ?>static/js/vendor/picker.date.js"></script>
+	<script src="<?php echo base_url(); ?>static/js/vendor/dropzone.js"></script>
 </head>
