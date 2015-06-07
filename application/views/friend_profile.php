@@ -6,6 +6,23 @@
 		<div class="large-9 large-centered columns profile-container">
 			<div class="row">
 				<h3 class="large-4 columns"><?php echo $username ?></h3>
+				<div class="large-8 columns">
+					<ul class="stack-for-small secondary button-group personal-button">
+						<li><a href="#" class="button tiny success"><i
+								class="fa fa-comments-o"></i> Contact</a></li>
+						<?php if (!$isAlreadyLiked) {?>
+						<li class="like-unlike-item"><a href="#" class="button tiny success" id="like_user"><i
+								class="fa fa-thumbs-up"></i> Like</a></li>
+						<?php } else {?>
+						<li class="like-unlike-item"><a href="#" class="button tiny alert unlike_user" id="unlike_user"><i
+								class="fa fa-thumbs-down"></i> Unlike</a></li>
+						<?php } ?>
+						<li><a data-reveal-id="attention-modal" href="#" class="button tiny success "><i class="fa fa-gift"></i>
+								Attention</a></li>
+						<li><a data-reveal-id="block-modal" href="#" class="button tiny success"><i class="fa fa-ban"></i>
+								Block</a></li>
+					</ul>
+				</div>
 			</div>
 
 			<div class="row">
@@ -99,20 +116,21 @@
 	</div>
 	<div id="block-modal" class="reveal-modal" data-reveal
 		aria-labelledby="block-modal-title" aria-hidden="true" role="dialog">
-		<h4 id="firstModalTitle">Do you want to block the user?</h4>
-		<form class="row">
-			<div class=large-6">
-				<input type="radio" name="is_the_user_want_to_block" value="1" id="yes"><label for="yes">Yes</label>
+		<h4 id="firstModalTitle">Confirm</h4>
+		<?php echo form_open('block/block_user'); ?>
+			<div class=large-7">
+				<p>Are you sure you want to block the user <b><?php echo $username ?></b>?</p>
 			</div>
-			<div class=large-6">
-				<input type="radio" name="is_the_user_want_to_block" value="0" id="no"><label for="no">No</label>
-			</div>
-			<div class=large-6">
+			<div class=large-7">
 				<input type="submit" value="Confirm" class="button tiny small">
 			</div>
+			<input type="hidden" name="current_user_id" value="<?php echo $this->session->userdata ( 'oid' )?>"/>
+			<input type="hidden" name="blocked_user_id" value="<?php echo $oid?>" />
+			<a class="close-reveal-modal" aria-label="Close">&#215;</a>
 		</form>
 	</div>
 	<?php require 'private_action_script.php'?>
+	<?php require 'general_script.php'?>
 	<?php require 'footer.php'?>
 </body>
 </html>

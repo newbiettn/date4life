@@ -1,7 +1,7 @@
 <?php include 'metadata.php'?>
 <body>
 	<?php require 'nav.php'?>
-	<div class="row">
+	<div class="row main-content">
 		<div class="large-6 large-centered columns container">
 			<h3>Login</h3>
 			<?php echo form_open('user/do_login'); ?>
@@ -24,7 +24,7 @@
 			</form>
 		</div>
 	</div>
-	<?php require 'scripts.php'?>
+	<?php require 'general_script.php'?>
 	<?php require 'footer.php'?>
 </body>
 </html>

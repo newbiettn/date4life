@@ -49,7 +49,7 @@
 	                </div>
 	                <div class="large-12">
 	                    Already a member ?
-	                    <a href="<?php echo base_url()?>index.php/user/login/show_login" class="to_register"> Go and log in </a>
+	                    <a href="<?php echo base_url()?>index.php/user/show_login" class="to_register"> Log in </a>
 	                </div>
 	                <input name="profile_picture_name" type="hidden" id="profile_picture_name"/>
 				</fieldset>
@@ -60,6 +60,7 @@
 		</div>
 	</div>
 	<?php require 'footer.php'?>
-	<?php require 'scripts.php'?>
+	<?php require 'general_script.php'?>
+	<?php require 'register_script.php'?>
 </body>
 </html>

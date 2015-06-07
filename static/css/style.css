@@ -30,6 +30,9 @@ h1, h2, h3, h4, h5, h6 {
 	color: #ff7b74;
 	font-family: "proxima_nova_rgregular";
 }
+a {
+	color:#ff7b74;
+}
 /************************** HEADER **************************/
 .top-bar {
 	border: solid 1px #CCC;
@@ -43,7 +46,9 @@ h1, h2, h3, h4, h5, h6 {
 	padding-top: 15px;
 	border: solid 1px #CCC;
 }
-
+.main-content{
+	min-height: 585px;
+}
 body {
 	/* 	background: url("../img/body-2.jpg") repeat scroll 0 0 #deceb9; */
 	background: none repeat scroll 0 0 #e6e6e6;
@@ -79,6 +84,9 @@ body {
 	box-sizing: border-box;
 	padding: 15px 20px 20px;
 	width: 100%;
+}
+.login-register-btn{
+	text-align: center;
 }
 /***************** register *****************/
 

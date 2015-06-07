@@ -1,9 +1,6 @@
 <script>
-	function NGOCTRAN() {
+	function NGOCTRAN_REGISTER() {
 		var SELF = this;
-		SELF.setupFoundation = function (){
-			$(document).foundation();		
-		},
 		SELF.validateAgeRange = function () {
 			$
 			var $from = $('input[name=from-age]'),
@@ -30,16 +27,15 @@
 				maxFiles: "1"
 			});
 			myDropzone.on("success", function(file, server_response) {
-				$('input[name=profile_picture_name]').val(server_response.msg);
+				response = jQuery.parseJSON(server_response);
+				$('input[name=profile_picture_name]').val(response["msg"]);
 			});
 		}
 	}
-	var ngoctran = new NGOCTRAN();
-	Dropzone.autoDiscover = false;
+	var ngoctran_register = new NGOCTRAN_REGISTER();
 	$(document).ready(function(){
-		ngoctran.setupFoundation();
-		ngoctran.validateAgeRange();
-		ngoctran.setupDatePicker();
-		ngoctran.setUpProfilePictureUpload();
+		ngoctran_register.validateAgeRange();
+		ngoctran_register.setupDatePicker();
+		ngoctran_register.setUpProfilePictureUpload();
 	});
 </script>

@@ -7,18 +7,14 @@ class User extends CI_Controller {
 			$this->show_login ();
 		}
 	}
-	public function show_homepage() {
-		if ($this->session->userdata ( 'username' )) {
-			$this->load->view ("personal_profile");
-		}
-	}
+	
 	// --------------------------------------------------------------------
 	public function show_login() {
 		if (! $this->session->userdata ( 'username' )) {
 			$data ['username_cookie'] = $this->input->cookie ( 'ihf_usr_ck' );
 			$this->load->view ( 'login', $data );
 		} else {
-			redirect ( 'user/show_homepage' );
+			redirect ( 'profile/view_profile' );
 		}
 	}
 	// --------------------------------------------------------------------
@@ -26,7 +22,7 @@ class User extends CI_Controller {
 		if (! $this->session->userdata ( 'username' )) {
 			$this->load->view ( 'register' );
 		} else {
-			redirect ( 'user/show_homepage' );
+			redirect ( 'profile/view_profile' );
 		}
 	}
 	// --------------------------------------------------------------------
@@ -46,7 +42,7 @@ class User extends CI_Controller {
 			// and store in session
 			$this->session->set_userdata ( $userdata );
 
-			redirect ( 'user/show_homepage' );
+			redirect ( 'profile/view_profile' );
 		}
 		$this->show_login ();
 	}

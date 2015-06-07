@@ -35,7 +35,9 @@
 		    		</div>
 		    		<div class="large-12 columns">
 		    			<a href="#" class="button radius expand">CONTINUE</a>
-		    			<a href="#" class="button radius expand success">REGISTER</a>
+		    		</div>
+		    		<div class="large-12 columns login-register-btn">
+		    			<a href="<?php echo base_url('index.php/user/show_login')?>">Login</a> or <a href="<?php echo base_url('index.php/user/show_register')?>">Register</a>
 		    		</div>
 		    		
 				</div>
@@ -44,5 +46,5 @@
 		</div>
 	</form>
 </body>
-<?php include 'scripts.php'?>
+<?php include 'general_script.php'?>
 </html>

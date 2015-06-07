@@ -93,7 +93,7 @@ class Basic_user_model extends CI_Model{
 	}
 
 	function get_user_info_by_id($id) {
-		$this->db->where('id', $id);
+		$this->db->where('oid', $id);
 		$query = $this->db->get('user');
 		if ($query -> num_rows() == 1) {
 			return $query->row_array();
@@ -126,13 +126,4 @@ class Basic_user_model extends CI_Model{
     	}
     	return implode($pass); //turn the array into a string
 	}
-	// --------------------------------------------------------------------
-	/**
-	 * Create chat box
-	 *
-	 */
-	function create_chat_box() {
-		
-	}
-
 }
