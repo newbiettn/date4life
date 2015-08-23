@@ -84,3 +84,9 @@ define('EXIT_USER_INPUT', 7); // invalid user input
 define('EXIT_DATABASE', 8); // database error
 define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+define('PUSHER_APP_ID',							'135278');
+define('PUSHER_APP_KEY',						'612cb18b054eb8cc1309');
+define('PUSHER_APP_SECRET',						'31ef7a6a622b91251139');
+define('NEW_ATTENTION_NOTIFCATION_CHANNEL',		'new_attention_notification_channel_');
+define('NEW_ATTENTION_NOTIFCATION_EVENT',			'new_attention_notification_event');

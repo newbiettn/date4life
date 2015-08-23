@@ -1,13 +1,16 @@
-<script>
+<script type="text/javascript">
 	function NGOCTRAN() {
 		var SELF = this;
 		SELF.setupFoundation = function (){
-			$(document).foundation();		
+			$(document).foundation();	
 		}
 	}
 	var ngoctran = new NGOCTRAN();
 	Dropzone.autoDiscover = false;
+	
 	$(document).ready(function(){
 		ngoctran.setupFoundation();
+		
 	});
+	
 </script>

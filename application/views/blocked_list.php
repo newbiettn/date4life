@@ -33,6 +33,7 @@
 			<?php } ?>
 		</div>
 	</div>
+	<?php require 'notification_script.php' ?>
 	<?php require 'general_script.php'?>
 	<?php require 'footer.php'?>
 </body>

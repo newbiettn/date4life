@@ -27,7 +27,7 @@
 							</div>
 							<div class="large-8 columns">
 								<span class="personal-info-detail"><?php echo $dob?></span> <span
-									class="personal-info-detail">Brussesls, Belgium</span> <span
+									class="personal-info-detail"><?php echo $location_name?></span> <span
 									class="personal-info-detail"><?php echo $email?></span>
 							</div>
 						</div>
@@ -50,16 +50,15 @@
 									class="personal-info-title">Description</span>
 							</div>
 							<div class="large-8 columns">
-								<span class="personal-info-detail">Master of Computer Science</span>
-								<span class="personal-info-detail">Vietnamese</span> <span
-									class="personal-info-detail">Flexible</span> <span
-									class="personal-info-detail">Flexible</span> <span
-									class="personal-info-detail">Brown</span> <span
-									class="personal-info-detail">0</span> <span
-									class="personal-info-detail">Single</span> <span
-									class="personal-info-detail">Women</span> <span
-									class="personal-info-detail">Lorem ipsum dolor sit amet,
-									consectetuer adipiscing elit, sed diam nonummy </span>
+								<span class="personal-info-detail"><?php if (strlen($degree) >0) {echo $degree;} else { echo '<i>Not available</i>';}?></span>
+								<span class="personal-info-detail"><?php if (strlen($nationality) >0) {echo $nationality;} else { echo '<i>Not available</i>';}?></span> <span
+									class="personal-info-detail"><?php if (strlen($clothing_style) >0) {echo $clothing_style;} else { echo '<i>Not available</i>';}?></span> <span
+									class="personal-info-detail"><?php if (strlen($hair_color) >0) {echo $hair_color ;} else { echo '<i>Not available</i>';}?></span> <span
+									class="personal-info-detail"><?php if (strlen($eye_color) >0) {echo $eye_color ;} else { echo '<i>Not available</i>';}?></span> <span
+									class="personal-info-detail"><?php if (strlen($amount_of_children) >0) {echo $amount_of_children ;} else { echo '<i>Not available</i>';}?></span> <span
+									class="personal-info-detail"><?php if (strlen($marital_status)>0) {echo $marital_status;} else { echo '<i>Not available</i>';}?></span> <span
+									class="personal-info-detail"><?php if (strlen($looking_for)>0) {echo $looking_for;} else { echo '<i>Not available</i>';}?></span> <span
+									class="personal-info-detail"><?php if (strlen($description)>0) {echo $description;} else { echo '<i>Not available</i>';}?></span>
 							</div>
 						</div>
 					</div>
@@ -112,7 +111,8 @@
 			</div>
 		</form>
 	</div>
-	<?php require 'private_action_script.php'?>
+	<?php require 'general_script.php'?>
+	<?php require 'notification_script.php' ?>
 	<?php require 'footer.php'?>
 </body>
 </html>

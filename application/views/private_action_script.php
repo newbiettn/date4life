@@ -40,6 +40,24 @@
 				}
 			});
 		},
+		SELF.sendAttention = function() {
+			$('#attention-form').submit(function() {
+				$.ajax({
+					url: "<?php echo base_url('index.php/attention/send_attention')?>",
+					data: $("#attention-form").serialize(),
+					dataType: 'json',
+					method: 'POST',
+					success: function(status) {
+						console.log(status);
+						html_str = '<a data-reveal-id="" href="#" class="button tiny alert success" id="already-send-attention">';
+						html_str += '<i class="fa fa-gift"></i> Sent Attention</a>';
+						$('.send-attention-item').html(html_str);
+						$('#attention-modal').foundation('reveal', 'close');
+					}
+				});
+				return false;
+			});
+		}
 		SELF.setupLikeUnlikeUser = function(){
 			$('#like_user').click(function(){
 				SELF.likeUser();
@@ -50,8 +68,10 @@
 		}
 	}
 	var ngoctran_personal = new NGOCTRAN_PERSONAL();
+	
 	$(document).ready(function(){
 		console.log(ngoctran_personal.user);
 		ngoctran_personal.setupLikeUnlikeUser();
+		ngoctran_personal.sendAttention();
 	});
 </script>

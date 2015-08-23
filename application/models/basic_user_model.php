@@ -61,8 +61,11 @@ class Basic_user_model extends CI_Model{
 			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 			'email' => $this->input->post('email'),
 			'dob' => $this->input->post('dob'),
+			'gender' => $this->input->post('gender'),
 			'picture' => $this->input->post('profile_picture_name'),
-			'description' => $this->input->post('description')
+			'description' => $this->input->post('description'),
+			'location' => $this->input->post('location'),
+			'looking_for' => $this->input->post('looking_for')
 		);
 		$q = $this->db->insert('user', $data);
 		return $this->db->insert_id();
@@ -84,10 +87,12 @@ class Basic_user_model extends CI_Model{
 	  *
 	  */
 	function get_user_info($username) {
-		$this->db->where('username', $username);
-		$query = $this->db->get('user');
-		if ($query -> num_rows() == 1) {
-			return $query->row_array();
+		$sql = "SELECT user.*, location.location_name FROM user, location
+				WHERE username = ?
+				AND user.location = location.oid";
+		$q = $this->db->query($sql, array($username));
+		if ($q -> num_rows() == 1) {
+			return $q->row_array();
 		} 
 		return false;
 	}
@@ -107,6 +112,7 @@ class Basic_user_model extends CI_Model{
 	 *
 	 */
 	function update_account($username, $data){
+		
 		$this->db->where('username', $username);
 		$query = $this->db->update('user', $data);
 	}

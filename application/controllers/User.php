@@ -2,12 +2,28 @@
 if (! defined ( 'BASEPATH' ))
 	exit ( 'No direct script access allowed' );
 class User extends CI_Controller {
+
 	public function index() {
 		if (! $this->session->userdata ( 'username' )) {
 			$this->show_login ();
 		}
 	}
-	
+	public function pusher_authentication() {
+		if ($this->session->userdata('username') && $this->session->userdata('id')) {
+			$this->load->library('Pusher/pusher');
+			$app_id 	= '135278';
+			$app_key 	= '612cb18b054eb8cc1309';
+			$app_secret = '31ef7a6a622b91251139';
+				
+			$pusher = new Pusher($app_key, $app_secret, $app_id);
+			$presencedata = array(
+					'id' => $this->session->userdata('id')
+			);
+			echo $pusher->presence_auth($_POST['channel_name'],
+					$this->session->userdata('uuid'),
+					$presencedata);
+		}
+	}
 	// --------------------------------------------------------------------
 	public function show_login() {
 		if (! $this->session->userdata ( 'username' )) {
@@ -25,6 +41,7 @@ class User extends CI_Controller {
 			redirect ( 'profile/view_profile' );
 		}
 	}
+	
 	// --------------------------------------------------------------------
 	public function do_login() {		
 		$this->form_validation->set_rules ( 'username', 'User Name', 'required|trim|max_length[50]|callback_validateUsernameEx' );
@@ -41,6 +58,13 @@ class User extends CI_Controller {
 			
 			// and store in session
 			$this->session->set_userdata ( $userdata );
+			
+			// get subscribing channels
+			$userid = $this->session->userdata('oid');
+			$channelArr = array($userid . "");
+						
+			//and update session
+			$this->session->set_userdata('channels', $channelArr);
 
 			redirect ( 'profile/view_profile' );
 		}

@@ -5,7 +5,7 @@ class Block_user_model extends CI_Model{
 		$data = array(
 			'user_oid' => $current_user_id
 		);
-		$q = $this->db->get('blocklist');
+		$q = $this->db->get('blocklist', $data);
 		if ($q -> num_rows() > 0) {
 			return $q->result_array();
 		}

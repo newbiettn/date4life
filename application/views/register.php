@@ -30,8 +30,24 @@
 	                    <?php echo form_error('dob', '<small class="error">', '</small>'); ?>
 	                </div>
 	                <div class="large-12">
+	                    <label>Location <small>required</small></label>
+	                    <select name="location">
+	                    	<option value="1" >Brussels</option>
+	                    	<option value="2">Leuven</option>
+	                    	<option value="3">Antwerpt</option>
+	                    	<option value="4">Ostend</option>
+	                    </select>
+	                </div>
+	                <div class="large-12">
+	                    <label>Gender <small>required</small></label>
+	                    <select name="gender">
+	                    	<option value="1" >Male</option>
+	                    	<option value="0">Female</option>
+	                    </select>
+	                </div>
+	                <div class="large-12">
 	                    <label>Purpose <small>required</small></label>
-	                    <select name="purpose">
+	                    <select name="looking_for">
 							<option value="love">Love</option>
 							<option value="friendship">Friendship</option>
 							<option value="penpal">Pen pal</option>

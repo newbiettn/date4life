@@ -21,7 +21,7 @@
 							src="<?php echo base_url(); ?>static/upload/<?php echo $person["picture"]; ?>"
 							class="" />
 						</td>
-						<td><?php echo $person["username"]?></td>
+						<td><a target="_blank" href="<?php echo base_url('index.php/profile/view_profile')?>/<?php echo $person["username"]; ?>"><?php echo $person["username"]?></a></td>
 						<td>
 							<a href="#" class="button tiny unlike-user" data-id="<?php echo $person["oid"] ?>">Unlike</a>
 						</td>
@@ -32,6 +32,7 @@
 			<?php } ?>
 		</div>
 	</div>
+	<?php require 'notification_script.php' ?>
 	<?php require 'general_script.php'?>
 	<?php require 'footer.php'?>
 </body>

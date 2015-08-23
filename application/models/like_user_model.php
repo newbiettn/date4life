@@ -5,7 +5,7 @@ class Like_user_model extends CI_Model{
 		$data = array(
 			'user_oid' => $current_user_id
 		);
-		$q = $this->db->get('favoritelist');
+		$q = $this->db->get('favoritelist', $data);
 		if ($q -> num_rows() > 0) {
 			return $q->result_array();
 		}
