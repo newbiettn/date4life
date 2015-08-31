@@ -29,10 +29,12 @@ class Message extends MY_Controller {
 			$this->load->view('message', $view_data);
 
 		} else if ($conversation_list && $received_user_id == null) {
+			
 			$conversation_list = $this->prepare_all_chat_conversation($current_user_id);
 			$view_data = array();
 			$view_data["conversation_list"] = $conversation_list;
 			$chat_conversation = $this->message_user_model->get_chat_conversation ( $conversation_list[0]["friend_id"], $current_user_id );
+// 			var_dump($chat_conversation); break;
 			$view_data["chat_conversation_id"] = $chat_conversation[0]["chatconversation_oid"];
 			$view_data["friend_id"] = $conversation_list[0]["friend_id"];
 			$view_data["friend_data"] = $this->basic_user_model->get_user_info_by_id($conversation_list[0]["friend_id"]);

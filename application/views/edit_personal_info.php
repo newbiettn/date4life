@@ -1,6 +1,13 @@
 <?php include 'metadata.php'?>
 <body>
 	<?php include 'nav.php'?>
+	<?php if (isset($new_update)) {?>
+	<div class="row">
+		<div class="large-9 large-centered columns container">
+			<h4>Update successfully!</h4>	
+		</div>
+	</div>
+	<?php }?>
 	<div class="row">
 		<div class="large-9 large-centered columns container">
 			<h3>Edit personal information</h3>
@@ -45,32 +52,32 @@
 							<div class="small-9 columns">
 								<select name="amount_of_children">
 								<?php if (strlen($amount_of_children) > 0 ){
-									if ($amount_of_children == 1) {
-										echo '<option selected value="1">1</option>
+									if ($amount_of_children == 0) {
+										echo '<option selected value="0">0</option>
+											<option value="1">1</option>
 											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>';
-									} else if ($amount_of_children == 2) {
-										echo '<option value="1">1</option>
-											<option selected value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>';
+											<option value="3">3</option>';
+									} else if ($amount_of_children == 1) {
+										echo '<option value="0">0</option>
+											<option selected value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>';
 									} else if ($amount_of_children == 3) {
-										echo '<option value="1">1</option>
-											<option value="2">2</option>
-											<option selected value="3">3</option>
-											<option value="4">4</option>';
+										echo '<option value="0">0</option>
+											<option value="1">1</option>
+											<option selected value="2">2</option>
+											<option value="3">3</option>';
 									} else {
-										echo '<option value="1">1</option>
+										echo '<option value="0">0</option>
+											<option value="1">1</option>
 											<option value="2">2</option>
-											<option value="3">3</option>
-											<option selected value="4">4</option>';
+											<option selected value="3">3</option>';
 									}
 								} else {?>
+									<option value="0">0</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
-									<option value="4">4</option>
 								<?php }?>
 								</select>
         					</div>

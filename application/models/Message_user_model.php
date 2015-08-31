@@ -35,12 +35,22 @@ class Message_user_model extends CI_Model{
 	}
 	
 	public function get_chat_conversation($receiver_id, $sender_id){
-		$data = array(
-				"receiver" => $receiver_id,
-				"sender" => $sender_id
-		);
-		$q = $this->db->get('chatconversation', $data);
-		return $q->result_array();
+		//check 1 way first
+		$this->db->where('receiver', $receiver_id);
+		$this->db->where('sender', $sender_id);
+		$q = $this->db->get('chatconversation');
+		if ($q -> num_rows() > 0) {
+			return $q->result_array();;
+		}
+		
+		//check reverse way
+		$this->db->where('sender', $receiver_id);
+		$this->db->where('receiver', $sender_id);
+		$q = $this->db->get('chatconversation');
+		if ($q -> num_rows() > 0) {
+			return $q->result_array();;
+		}
+		return false;
 	}
 	
 	public function get_all_chat_message($chat_conversation_id) {

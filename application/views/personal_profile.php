@@ -49,6 +49,7 @@
 									class="personal-info-title">Looking for</span> <span
 									class="personal-info-title">Description</span>
 							</div>
+							
 							<div class="large-8 columns">
 								<span class="personal-info-detail"><?php if (strlen($degree) >0) {echo $degree;} else { echo '<i>Not available</i>';}?></span>
 								<span class="personal-info-detail"><?php if (strlen($nationality) >0) {echo $nationality;} else { echo '<i>Not available</i>';}?></span> <span

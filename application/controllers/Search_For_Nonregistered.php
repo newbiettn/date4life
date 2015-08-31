@@ -10,7 +10,7 @@ class Search_For_Nonregistered extends CI_Controller {
 		$max_age = $this->input->post('max_age');
 		$location = $this->input->post('location');
 
-		$res = $this->search_model->search_for_non_registered($min_age, $max_age, $location);
+		$res = $this->search_model->search_for_non_registered($min_age, $max_age, $location, $gender);
 		$view_data = array();
 		$view_data["search_result"] = $res;
 		$this->load->view('search_for_nonregistered', $view_data);

@@ -78,7 +78,7 @@
 							<th width="223">Picture</th>
 							<th width="160">Username</th>
 							<th width="160">Date of Birth</th>
-							<th width="223">Email</th>
+							<th width="223">Looking For</th>
 							<th width="160">Gender</th>
 							<th width="160">Location</th>
 						</tr>
@@ -93,7 +93,7 @@
 							</td>
 							<td><a target="_blank" href="<?php echo base_url('index.php/profile/view_profile')?>/<?php echo $person["username"]; ?>"><?php echo $person["username"]?></a></td>
 							<td><?php echo $person["dob"]?></td>
-							<td><?php echo $person["email"]?></td>
+							<td><?php echo $person["looking_for"]?></td>
 							<td><?php if ($person["gender"] == 1) {
 								echo 'Male';
 							} else {

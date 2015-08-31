@@ -7,13 +7,14 @@
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>static/img/favicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/normalize.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/app.css" />
-	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/default.css" />
-	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/default.date.css" />
+	
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/dropzone.css" />
 	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/jquery.tagit.css" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/style.css" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/default.css" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>static/css/default.date.css" />
 	<script src="<?php echo base_url(); ?>static/js/vendor/modernizr.js"></script>
 	<script src="<?php echo base_url(); ?>static/js/vendor/jquery.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>

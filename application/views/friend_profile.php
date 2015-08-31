@@ -60,7 +60,7 @@
 							<div class="large-8 columns">
 								<span class="personal-info-detail"><?php echo $dob?></span> <span
 									class="personal-info-detail"><?php echo $location_name?></span> <span
-									class="personal-info-detail"><?php echo $email?></span>
+									class="personal-info-detail"><?php echo '<i>Private</i>'?></span>
 							</div>
 						</div>
 					</div>

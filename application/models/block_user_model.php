@@ -2,10 +2,11 @@
 
 class Block_user_model extends CI_Model{
 	public function get_blocked_list($current_user_id) {
-		$data = array(
-			'user_oid' => $current_user_id
-		);
-		$q = $this->db->get('blocklist', $data);
+		$this->db->select("*")
+			->from("blocklist")
+			->where("user_oid", $current_user_id);
+		
+		$q = $this->db->get();
 		if ($q -> num_rows() > 0) {
 			return $q->result_array();
 		}

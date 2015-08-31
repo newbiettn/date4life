@@ -10,6 +10,7 @@ class Profile extends MY_Controller {
 		$this->load->model ( 'basic_user_model' );
 		$userdata = $this->basic_user_model->get_user_info ( $username );
 		$this->load->view ("edit_personal_info", $userdata);
+		
 	}
 	public function edit_personal_profile(){
 		$this->load->model ( 'basic_user_model' );
@@ -42,7 +43,7 @@ class Profile extends MY_Controller {
 		$this->basic_user_model->update_account($username, $data);
 		
 		$userdata = $this->basic_user_model->get_user_info ( $username );
-		$viewdata["userdata"] = $userdata;
+		$userdata["new_update"] = true;
 		$this->load->view ("edit_personal_info", $userdata);
 	}
 	/**

@@ -1,15 +1,17 @@
 <?php
 
 class Search_model extends CI_Model{
-	public function search_for_non_registered($min_age, $max_age, $location) {
+	public function search_for_non_registered($min_age, $max_age, $location, $gender) {
 		$target_max_year = date("Y") - $min_age;
 		$target_min_year = date("Y") - $max_age;
-		$sql = "SELECT user.*, location.name AS city FROM user, location 
-				WHERE YEAR(dob) > ? and YEAR(dob) < ? 
+		$sql = "SELECT user.*, location.location_name AS city FROM user, location 
+				WHERE YEAR(dob) > ? and YEAR(dob) < ?
+				AND gender = ? 
 				AND location = ?
-				AND user.location = location.oid";
-		$q = $this->db->query($sql, array($target_min_year, $target_max_year, $location));
-		
+				AND user.location = location.oid"
+		;
+		$q = $this->db->query($sql, array($target_min_year, $target_max_year, $gender, $location));
+
 		return $q->result_array();
 		
 		
@@ -23,7 +25,20 @@ class Search_model extends CI_Model{
 	}
 	
 	public function search_full($search_query){
-		$this->db->distinct("*")
+		$current_username = $this->session->userdata('username');
+		$sql = "SELECT user.username FROM user WHERE user.oid IN 
+			(SELECT blocked_user_oid FROM blocklist WHERE user_oid = ?)";
+		
+		$blocked_list_query = $this->db->query($sql, array($this->session->userdata('oid')));
+		
+		$except_list = array($current_username);
+		if ($blocked_list_query -> num_rows() > 0) {
+			foreach($blocked_list_query->result_array() as $username) {
+				array_push($except_list, $username["username"]);
+			}
+		}
+		
+		$this->db->distinct("user.*")
 			->from("user")
 			->join("location", "location.oid = user.location")
 			->like("username", $search_query, 'both')
@@ -41,9 +56,24 @@ class Search_model extends CI_Model{
 			->or_like("languages", $search_query, 'both')
 			->or_like("occupation", $search_query, 'both')
 			->or_like("favorite", $search_query, 'both');
-
+		
 		$q = $this->db->get();
-		return $q->result_array();
+		$result = false;
+		if ($q -> num_rows() > 0) {
+			$result = $q->result_array();
+			$count = 0;
+			foreach($result as $person) {
+				foreach($except_list as $except_id) {
+					
+					if ($person["username"] == $except_id) {
+						unset($result[$count]);
+					}
+				}
+				$count = $count + 1;
+			}
+		}
+		
+		return $result;
 	}
 	
 	public function search_random_friend($age, $gender, $number_of_res) {

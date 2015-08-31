@@ -13,7 +13,11 @@
 		SELF.setupDatePicker = function () {
 			$('.dob').pickadate({
 				formatSubmit: 'yyyy-mm-dd',
-				format: 'yyyy-mm-dd'
+				format: 'yyyy-mm-dd',
+				selectYears: 80,
+				selectMonths: true,
+				min: [1920,1,1],
+				max: [1997,11,30]
 			});
 		},
 		SELF.setUpProfilePictureUpload = function(){

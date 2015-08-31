@@ -87,11 +87,15 @@ class User extends CI_Controller {
 		} else {
 			$this->load->model ( 'basic_user_model' );
 			if ($user_id = $this->basic_user_model->create_member ()) {
-				$this->show_login ();
+				$this->show_congratulation ();
 			} else {
 				$this->load->view ( 'register' );
 			}
 		}
+	}
+	
+	public function show_congratulation(){
+		$this->load->view('congratulation_login');
 	}
 	// --------------------------------------------------------------------
 	public function do_logout() {
